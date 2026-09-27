@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #09090b;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    --border: #e4e4e7;
+    --edge: #e4e4e7;
+    --input: #e4e4e7;
+    --accent: #f4f4f5;
+    --accent-muted: #f4f4f5cc;
+    --accent-foreground: #18181b;
+    --card: #ffffff;
+    --card-foreground: #09090b;
+    --primary: #18181b;
+    --primary-foreground: #ffffff;
+    --info: #0284c7;
+    --pattern-foreground: color-mix(in oklab, #a1a1aa 45%, transparent);
+  }
+
+  .dark {
+    --background: #09090b;
+    --foreground: #f4f4f5;
+    --muted: #18181b;
+    --muted-foreground: #a1a1aa;
+    --border: #27272a;
+    --edge: #27272a;
+    --input: #27272a;
+    --accent: #18181b;
+    --accent-muted: #27272a80;
+    --accent-foreground: #fafafa;
+    --card: #09090b;
+    --card-foreground: #f4f4f5;
+    --primary: #fafafa;
+    --primary-foreground: #09090b;
+    --info: #38bdf8;
+    --pattern-foreground: color-mix(in oklab, #71717a 40%, transparent);
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+.font-pixel {
+  font-family: 'Silkscreen', monospace;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+}
+
+/* Engineering screen lines extending edge-to-edge across viewport */
+.screen-line-before {
+  position: relative;
+}
+.screen-line-before::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  width: 200vw;
+  height: 1px;
+  background-color: var(--edge);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.screen-line-after {
+  position: relative;
+}
+.screen-line-after::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100vw;
+  width: 200vw;
+  height: 1px;
+  background-color: var(--edge);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Diagonal hatched divider strips */
+.hatch-strip {
+  position: relative;
+  display: flex;
+  height: 1.5rem;
+  width: 100%;
+  border-left: 1px solid var(--edge);
+  border-right: 1px solid var(--edge);
+  overflow: visible;
+}
+.hatch-strip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  height: 1.5rem;
+  width: 200vw;
+  z-index: 0;
+  background-image: repeating-linear-gradient(
+    315deg,
+    var(--pattern-foreground) 0,
+    var(--pattern-foreground) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 10px 10px;
+}
+
+/* Dot grid banner */
+.dot-grid {
+  background-image: radial-gradient(var(--pattern-foreground) 1px, transparent 0);
+  background-size: 10px 10px;
+  background-position: center;
+}
+
+/* Spinning vinyl disk animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* Subtle scanlines effect on avatar hover */
+.avatar-glitch:hover .avatar-glitch__scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+}
+
+/* Crosshair corner tick helper */
+.crosshair-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 20;
+}
