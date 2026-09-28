@@ -101,6 +101,17 @@ export const Header: React.FC<HeaderProps> = ({
             Projects
           </button>
 
+          <a
+            href="/Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 font-mono text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
+            aria-label="View Resume PDF"
+          >
+            <span>Resume</span>
+            <span className="text-[10px] text-muted-foreground font-mono">↗</span>
+          </a>
+
           {/* More Hover Dropdown & Pop-out Card */}
           <div
             className="relative"
