@@ -101,17 +101,6 @@ export const Header: React.FC<HeaderProps> = ({
             Projects
           </button>
 
-          <a
-            href="/Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 font-mono text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer"
-            aria-label="View Resume PDF"
-          >
-            <span>Resume</span>
-            <span className="text-[10px] text-muted-foreground font-mono">↗</span>
-          </a>
-
           {/* More Hover Dropdown & Pop-out Card */}
           <div
             className="relative"
@@ -167,16 +156,15 @@ export const Header: React.FC<HeaderProps> = ({
                   </button>
                 </div>
 
-                {/* Resume download link */}
+                {/* Resume direct download link */}
                 <div className="mt-1 pt-1 border-t border-border">
                   <a
-                    href="/Resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/Harsh_Parmar_Resume.pdf"
+                    download="Harsh_Parmar_Resume.pdf"
                     className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs text-muted-foreground hover:bg-accent hover:text-foreground transition-colors cursor-pointer"
                   >
                     <span>Resume (PDF)</span>
-                    <span className="text-[10px]">↗</span>
+                    <span className="text-[11px] font-mono">↓</span>
                   </a>
                 </div>
               </div>

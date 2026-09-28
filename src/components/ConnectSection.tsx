@@ -100,8 +100,9 @@ export const ConnectSection: React.FC = () => {
             <div key={link.name} className="relative inline-block">
               <a
                 href={link.url}
-                target={link.url.startsWith('mailto:') ? undefined : '_blank'}
+                target={link.url.startsWith('mailto:') || link.name === 'Resume' ? undefined : '_blank'}
                 rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                download={link.name === 'Resume' ? 'Harsh_Parmar_Resume.pdf' : undefined}
                 className="touch-manipulation active:scale-95 transition-transform"
               >
                 <div className="justify-center rounded-xl border transition-all duration-200 border-neutral-200 bg-white hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900/90 dark:hover:border-neutral-700 dark:hover:bg-neutral-800 shadow-xs hover:shadow-md h-9 px-3.5 flex items-center gap-2 whitespace-nowrap select-none cursor-pointer">

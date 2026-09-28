@@ -172,11 +172,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     {
       id: 'resume',
       title: 'Download Resume (PDF)',
-      subtitle: 'Harsh Parmar — Resume',
+      subtitle: 'Harsh_Parmar_Resume.pdf',
       category: 'Actions',
       icon: <FileText className="size-4" />,
       action: () => {
-        window.open('/Resume.pdf', '_blank')
+        const link = document.createElement('a')
+        link.href = '/Harsh_Parmar_Resume.pdf'
+        link.download = 'Harsh_Parmar_Resume.pdf'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
         onClose()
       },
     },

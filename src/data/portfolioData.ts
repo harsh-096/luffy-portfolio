@@ -87,7 +87,7 @@ export const portfolioData = {
     github: 'https://github.com/harsh-096',
     twitter: 'https://x.com/Pharsh_096',
     linkedin: 'https://www.linkedin.com/in/harshparmar096/',
-    resume: '/Resume.pdf',
+    resume: '/Harsh_Parmar_Resume.pdf',
   },
 
   about: {
@@ -130,7 +130,7 @@ export const portfolioData = {
     },
     {
       name: 'Resume',
-      url: '/Resume.pdf',
+      url: '/Harsh_Parmar_Resume.pdf',
       icon: 'resume',
     },
   ],
